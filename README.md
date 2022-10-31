@@ -1,9 +1,10 @@
 # @luckrya/markdown-it-link-to-card
 
+<p align="left">
 <img src="https://img.shields.io/npm/v/@luckrya/markdown-it-link-to-card" alt="NPM Version" />
 <img src="https://img.shields.io/npm/l/@luckrya/markdown-it-link-to-card" alt="License">
 <img src="https://img.shields.io/npm/dm/@luckrya/markdown-it-link-to-card.svg" alt="NPM Downloads" />
-<br /><br />
+<p/>
 
 A [markdown-it](https://github.com/markdown-it/markdown-it) plugin for turning page links into link cards (which contain brief information about the link).
 
@@ -73,7 +74,7 @@ export default defineConfig({
     config: (md) => {
       md.use<LinkToCardPluginOptions>(linkToCardPlugin, {
         size: "small",
-        tag: "$",
+        tag: "\\$",
       });
     },
   },
@@ -114,34 +115,32 @@ export default defineConfig({
 ### tag
 
 - Type: `string`
-- Default: `$`
+- Default: `@`
 - Details:
 
-  Identifier, e.g. `[xxx]($:https://github.com)`
+  Identifier, e.g. `[xxx](@:https://github.com)`
+
+  > Note that a regular expression will be constructed internally to separate characters. If the value provided by tag is a special symbol of the regular expression, be sure to escape it manually.
+  >
+  > e.g. `\\$` => `[xxx]($:https://github.com)`
 
 ### Size
 
 - Type: `'small' | 'large'`
 - Default: `'small'`
-- Details:
-
-  Card size, only valid in inline style mode.
+- Details: Card size, only valid in inline style mode.
 
 ### target
 
 - Type: `'_self' | '_blank' | '_top' | '_parent'`
 - Default: `'_blank'`
-- Details:
-
-  Link jump behavior. [more detail](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target)
+- Details: Link jump behavior. [more detail](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target)
 
 ### classPrefix
 
 - Type: `string | undefined`
 - Default: `undefined`
-- Details:
-
-  Card DOM class name prefix. If this option is set, the inline style will not be injected, but the relevant class name will be injected directly. e.g. the setting value is `'my-docs'` will get the following structure
+- Details: Card DOM class name prefix. If this option is set, the inline style will not be injected, but the relevant class name will be injected directly. e.g. the setting value is `'my-docs'` will get the following structure
 
   ```html
   <div class="my-docs__container">
@@ -157,9 +156,7 @@ export default defineConfig({
 
 - Type: `boolean`
 - Default: true
-- Details:
-
-  Whether to display the link title. Note that this will be displayed as a tooltip, with the displayed value extracted from `[link title]()`. [more detail](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title)
+- Details: Whether to display the link title. Note that this will be displayed as a tooltip, with the displayed value extracted from `[link title]()`. [more detail](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/title)
 
 ### render
 
@@ -184,9 +181,7 @@ export default defineConfig({
   ```
 
 - Default: `undefined`
-- Details:
-
-  Custom Rendering DOM Fragments.
+- Details: Custom Rendering DOM Fragments.
 
 ## Q/A
 
