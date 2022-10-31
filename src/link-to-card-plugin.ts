@@ -5,15 +5,9 @@ import { isFunction } from "@luckrya/utility";
 import { getUrlMetadata, generateCardDomFragment } from "./assemble";
 
 export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
-  // const _render = md.renderer.render.bind(md.renderer);
-  // md.renderer.render = (tokens, options, env) => {
-  //   const result = _render(tokens, options, env);
-  //   return result;
-  // };
-
   function parseCardLinkHref(href?: string) {
     const tagRegexp = new RegExp(
-      `^(${pluginOptions?.tag || "C"}:)([a-zA-Z0-9]+.*)`
+      `^(${pluginOptions?.tag || "@"}:)([a-zA-Z0-9]+.*)`
     );
     const match = href?.match(tagRegexp);
 
