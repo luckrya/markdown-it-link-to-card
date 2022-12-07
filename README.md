@@ -62,6 +62,9 @@ const rendered = md.render(`
 // docs/.vitepress/config.ts
 
 import { defineConfig } from "vitepress";
+import { linkToCardPlugin } from "@luckrya/markdown-it-link-to-card";
+import type { LinkToCardPluginOptions } from "@luckrya/markdown-it-link-to-card";
+
 
 export default defineConfig({
   // ...
