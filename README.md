@@ -8,7 +8,7 @@
 
 A [markdown-it](https://github.com/markdown-it/markdown-it) plugin for turning page links into link cards (which contain brief information about the link).
 
-- Extract links with special flags (eg. `[text]($:url)`) and convert them into card information display.
+- Extract links with special flags (eg. `[text](@:url)`) and convert them into card information display.
 - Support for custom renderers to support rendering into anything you want.
 - Support injecting class names for cards to support custom styles.
 
@@ -73,8 +73,8 @@ export default defineConfig({
   markdown: {
     config: (md) => {
       md.use<LinkToCardPluginOptions>(linkToCardPlugin, {
+        // options
         size: "small",
-        tag: "\\$",
       });
     },
   },
@@ -98,10 +98,10 @@ export default defineConfig({
 
 <br />
 
-  - [github]($:https://github.com)
-  - [bing]($:https://cn.bing.com)
-  - [知乎 - 发现页]($:https://www.zhihu.com/explore)
-  - [markdown-it-link-to-card]($:https://github.com/luckrya/markdown-it-link-to-card)
+  - [github](@:https://github.com)
+  - [bing](@:https://cn.bing.com)
+  - [知乎 - 发现页](@:https://www.zhihu.com/explore)
+  - [markdown-it-link-to-card](@:https://github.com/luckrya/markdown-it-link-to-card)
 
 `;
 ```
@@ -143,13 +143,13 @@ export default defineConfig({
 - Details: Card DOM class name prefix. If this option is set, the inline style will not be injected, but the relevant class name will be injected directly. e.g. the setting value is `'my-docs'` will get the following structure
 
   ```html
-  <div class="my-docs__container">
+  <span class="my-docs__container">
     <img class="my-docs__img" src="$logo" />
-    <div class="my-docs__texts">
-      <h3 class="my-docs__texts--title">$title</h3>
-      <p class="my-docs__texts--desc">$description</p>
-    </div>
-  </div>
+    <span class="my-docs__texts">
+      <span class="my-docs__texts--title">$title</span>
+      <span class="my-docs__texts--desc">$description</span>
+    </span>
+  </span>
   ```
 
 ### showTitle
