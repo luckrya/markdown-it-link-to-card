@@ -19,20 +19,20 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
   const classes = classNames(options.classPrefix);
   const style = styleNames(options.size);
 
-  return `<div>
+  return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
-    <div ${inject(style.container, classes.container)}>
+    <span ${inject(style.container, classes.container)}>
       <img src="${data?.logo}" ${inject(style.img, classes.img)}/>
 
-      <div ${inject(style.texts, classes.texts)}>
-        <h4 ${inject(style.title, classes.title)}>
+      <span ${inject(style.texts, classes.texts)}>
+        <span ${inject(style.title, classes.title)}>
           ${data.title || options.linkTitle || ""}
-        </h4>
-        <p ${inject(style.description, classes.description)}>
+        </span>
+        <span ${inject(style.description, classes.description)}>
           ${data.description || ""}
-        </p>
-      </div>
-    </div>
+        </span>
+      </span>
+    </span>
   </a>
-</div>`;
+</span>`;
 };

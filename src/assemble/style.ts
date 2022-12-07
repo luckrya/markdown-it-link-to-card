@@ -30,7 +30,7 @@ const STYLE = {
   small: {
     a: inlineStyle({
       color: "unset !important",
-      display: "inline-block",
+      display: "block",
       minWidth: "340px",
       width: "90%",
     }),
@@ -54,6 +54,7 @@ const STYLE = {
       opacity: 0.8,
       fontSize: "14px",
       lineHeight: "14px",
+      fontWeight: "bold",
     }),
     description: inlineStyle({
       ...ellipsisStyle(2),
@@ -67,7 +68,7 @@ const STYLE = {
   large: {
     a: inlineStyle({
       color: "unset !important",
-      display: "inline-block",
+      display: "block",
       minWidth: "340px",
     }),
     container: inlineStyle({
@@ -88,6 +89,9 @@ const STYLE = {
       ...ellipsisStyle(2),
       margin: 0,
       opacity: 0.8,
+      fontSize: "16px",
+      lineHeight: "16px",
+      fontWeight: "bold",
     }),
     description: inlineStyle({
       ...ellipsisStyle(),
