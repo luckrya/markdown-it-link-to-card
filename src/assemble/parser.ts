@@ -8,6 +8,7 @@ import { cleanPath, extractUrl } from "./url";
 
 const DEFAULT_LOGO = "https://resources.whatwg.org/logo-url.svg";
 
+const HtmlEncodeReg = /[&<>"']/g;
 const HtmlTagContentReg = /(<[A-Za-z]+\s*[^>]*>(.*)<\/[A-Za-z]+>)/;
 const ContentAttrValueHtmlMetaTagReg = /content=["|']([^>]*)["|']/;
 const HrefAttrValueHtmlLinkTagReg = /href=["|']([^>]*)["|']/;
@@ -18,6 +19,21 @@ const containArrSelfLosingHtmlTagReg = (attr: string, tag = "meta") =>
   new RegExp(
     `<${tag}\\s[^>]*\\w+=['|"]([a-zA-Z]|:|\\s)*${attr}['|"][^>]*\\/?>`
   );
+
+function escapeHTML(str?: string) {
+  if (str) {
+    return str.replace(HtmlEncodeReg, ($0) => {
+      const HtmlEncodeMap = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&apos;",
+      };
+      return HtmlEncodeMap[$0 as keyof typeof HtmlEncodeMap];
+    });
+  }
+}
 
 /**
  * @desc get page name
@@ -42,7 +58,7 @@ function matchTitleByMetaTag(htmlString: string) {
     }
   }
 
-  return title;
+  return escapeHTML(title);
 }
 
 /**
@@ -59,8 +75,7 @@ function matchDescriptionByMetaTag(htmlString: string) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) description = content[1];
   }
-
-  return description;
+  return escapeHTML(description);
 }
 
 /**
