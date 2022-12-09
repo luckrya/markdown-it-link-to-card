@@ -1,6 +1,6 @@
 {
   "name": "@luckrya/markdown-it-link-to-card",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A markdown-it plugin to convert link to card.",
   "main": "./dist/markdown.esm.min.js",
   "module": "./dist/markdown.esm.min.js",
