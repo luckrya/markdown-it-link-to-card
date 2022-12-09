@@ -15,7 +15,7 @@ A [markdown-it](https://github.com/markdown-it/markdown-it) plugin for turning p
 ## Install
 
 ```sh
-npm i @luckrya/markdown-it-link-to-card
+npm i -D @luckrya/markdown-it-link-to-card
 ```
 
 ## Usage
@@ -64,7 +64,6 @@ const rendered = md.render(`
 import { defineConfig } from "vitepress";
 import { linkToCardPlugin } from "@luckrya/markdown-it-link-to-card";
 import type { LinkToCardPluginOptions } from "@luckrya/markdown-it-link-to-card";
-
 
 export default defineConfig({
   // ...
