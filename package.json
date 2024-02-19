@@ -65,5 +65,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "pnpm@7.1.0"
+  "packageManager": "pnpm@7.1.0",
+  "type": "module"
 }
